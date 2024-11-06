@@ -22,7 +22,7 @@ public class MyUnitTests {
     @Mock
     private ProductRepository productRepository;
     @InjectMocks 
-    private ProductService productService;
+    private ProductServiceImpl productServiceImpl;
 
     @Test
     public void test() {
@@ -32,7 +32,7 @@ public class MyUnitTests {
         Mockito.when(productRepository.save(product)).thenReturn(product);
 
         // WHEN
-        productService.notifyDelay(product.getLeadTime(), product);
+        productServiceImpl.notifyDelay(product.getLeadTime(), product);
 
         // THEN
         assertEquals(0, product.getAvailable());
